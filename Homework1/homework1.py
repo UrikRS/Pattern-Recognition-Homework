@@ -115,9 +115,9 @@ def make_picture(data, w0, w1):
     return np.asarray(result_pic).reshape(old_shape)
 
 if __name__ == '__main__':
-    no_duck = get_imgs('pic\\not duck')
-    ducks = get_imgs('pic\\duck')
-    test_pic = cv2.imread('pic\\full_duck.jpg', flags=1)
+    no_duck = get_imgs('Homework1\\pic\\not duck')
+    ducks = get_imgs('Homework1\\pic\\duck')
+    test_pic = cv2.imread('Homework1\\pic\\tiny.jpg', flags=1)
     w0 = make_model(no_duck)
     w1 = make_model(ducks)
     result_pic = make_picture(test_pic, w0, w1)
