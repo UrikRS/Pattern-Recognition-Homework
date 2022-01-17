@@ -1,8 +1,10 @@
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import confusion_matrix, classification_report
 
 def get_pgm(dir_name):
     f = open(dir_name, 'rb')
@@ -25,12 +27,16 @@ def get_data(dir_name):
     return np.asarray(data), np.asarray(label), np.asarray(test_d), np.asarray(test_l)
 
 if __name__ == '__main__':
-    x_train, y_train , x_test, y_test = get_data('d:/URIK/WORK SPACES/GitHub/Pattern-Recognition-Homework/Homework2/att_faces')
+    x_train, y_train , x_test, y_test = get_data('Homework2\\att_faces')
     dimensions = [10, 20, 30, 40, 50]
-    knn = KNeighborsClassifier(n_neighbors=3)
+    sx_train, sx_test = StandardScaler().fit_transform(x_train), StandardScaler().fit_transform(x_test)
     for dime in dimensions:
+        knn = KNeighborsClassifier(n_neighbors=3)
         pca = PCA(n_components=dime, random_state=1234)
-        rx_train = pca.fit_transform(StandardScaler().fit_transform(x_train))
-        rx_test = pca.fit_transform(StandardScaler().fit_transform(x_test))
+        rx_train, rx_test = pca.fit_transform(sx_train), pca.transform(sx_test)
         knn.fit(rx_train, y_train)
+        predict = knn.predict(rx_test)
         print(knn.score(rx_test, y_test))
+        with np.printoptions(threshold=np.inf):
+            f = open('%dD.txt'%dime, 'w')
+            f.write(str(confusion_matrix(y_test, predict))+'\n'+classification_report(y_test, predict))
