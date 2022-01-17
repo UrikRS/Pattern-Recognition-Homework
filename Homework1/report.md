@@ -29,30 +29,39 @@
 ### Area 1
 ![](https://i.imgur.com/8l3bhp0.jpg)
 ![](https://i.imgur.com/1iY8IrP.png)
+
 (樣本數 : duck=5, noduck=5)
 
 ### Area 2
 ![](https://i.imgur.com/q8Ccanz.jpg)
 ![](https://i.imgur.com/xSDDyRN.png)
+
 (樣本數 : duck=5, noduck=5)
 
 ### Area 3
 ![](https://i.imgur.com/xDYozRR.jpg)
 ![](https://i.imgur.com/Bj0fUEf.png)
+
 (樣本數 : duck=5, noduck=5)
 
 ### Area 4
 ![](https://i.imgur.com/RhUWWWL.jpg)
 ![](https://i.imgur.com/sTr4yoc.png)
+
 (樣本數 : duck=5, noduck=5)
 
 ### Area 5
 ![](https://i.imgur.com/gyTVp2q.jpg)
 ![](https://i.imgur.com/0dTjjNj.png)
+
 (樣本數 : duck=5, noduck=5)
 
 ### full_duck.jpg
 ![](https://i.imgur.com/2VfrnR5.jpg)
+![](https://i.imgur.com/KuAW7Ac.jpg)
+
+(樣本數 : duck=3, noduck=3)
+
 
 ## Discussions
 前後調整過很多次樣本，最後的結果還是有各種小石頭被誤認成鴨子，或者有鴨子被挖成空心的。而且只要總樣本數越大，運行時間就會倍數增加，當鴨、非鴨的樣本各取 5 個，總樣本共 10 個時，運行就已經相當吃力。
