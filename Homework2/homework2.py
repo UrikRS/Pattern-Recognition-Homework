@@ -25,13 +25,12 @@ def get_data(dir_name):
     return np.asarray(data), np.asarray(label), np.asarray(test_d), np.asarray(test_l)
 
 if __name__ == '__main__':
-    x_train, y_train , x_test, y_test = get_data('Homework2\\att_faces')
-    #print(data.shape)
+    x_train, y_train , x_test, y_test = get_data('d:/URIK/WORK SPACES/GitHub/Pattern-Recognition-Homework/Homework2/att_faces')
     dimensions = [10, 20, 30, 40, 50]
     knn = KNeighborsClassifier(n_neighbors=3)
     for dime in dimensions:
         pca = PCA(n_components=dime, random_state=1234)
-        x_train_t = pca.fit_transform(StandardScaler().fit_transform(x_train))
-        x_test_t = pca.fit_transform(StandardScaler().fit_transform(x_test))
-        knn.fit(x_train_t, y_train)
-        print(knn.score(x_test_t, y_test))
+        rx_train = pca.fit_transform(StandardScaler().fit_transform(x_train))
+        rx_test = pca.fit_transform(StandardScaler().fit_transform(x_test))
+        knn.fit(rx_train, y_train)
+        print(knn.score(rx_test, y_test))
