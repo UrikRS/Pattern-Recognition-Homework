@@ -1110,7 +1110,7 @@ $$
           40       0.67      0.80      0.73         5
 
     accuracy                           0.85       200
-    macro avg       0.89      0.85      0.84       200
+    macro avg      0.89      0.85      0.84       200
    
 #### confusion matrix
 $$
